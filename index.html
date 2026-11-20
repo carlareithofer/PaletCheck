@@ -90,6 +90,9 @@ body.sub .subbar{display:block}
 body.sub .hero,body.sub #evaluare,body.sub #raport,body.sub #contact,body.sub .cable,body.sub .hook{display:none}
 .hero-img,.hero-img svg{pointer-events:none}
 nav{z-index:6}
+nav .links{align-items:center}
+.lang-btn{font:inherit;font-size:13px;font-weight:700;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.65);border-radius:999px;padding:4px 11px;cursor:pointer;letter-spacing:.04em}
+.lang-btn:hover{background:#fff;color:#1f5a8f}
 @media (min-width:721px){.hero-img{transform:translate(23%,-20%)}}
 @media (max-width:720px){.hero{min-height:auto}.hero .in{padding-block:14px 30px;grid-template-rows:auto auto}.hero-grid{grid-template-columns:1fr;gap:0}.hero-img{justify-self:center;max-width:340px;transform:translateX(19%);margin-top:24px}.eval-band{padding-top:10px}}
 
@@ -202,7 +205,7 @@ footer{padding-block:24px;font-size:12px;color:var(--muted);border-top:1px solid
           <a href="#contact">Contact</a>
         </div>
       </div>
-      <div class="links"><a href="#despre">Despre noi</a><a href="#contact">Contact</a></div>
+      <div class="links"><a href="#despre">Despre noi</a><a href="#contact">Contact</a><button type="button" class="lang-btn" data-lang-toggle aria-label="Switch language">EN</button></div>
     </nav>
     <div class="hero-grid">
       <div>
@@ -301,7 +304,7 @@ footer{padding-block:24px;font-size:12px;color:var(--muted);border-top:1px solid
   <div class="subbar" aria-label="Navigare pagină">
     <div class="in subbar-in">
       <a href="#acasa" class="brand">PaletCheck</a>
-      <nav class="sublinks" aria-label="Pagini"><a href="#robot">Robotul UR20</a><a href="#despre">Despre noi</a><a href="#contact">Contact</a><a href="#acasa" class="back">← Înapoi la evaluare</a></nav>
+      <nav class="sublinks" aria-label="Pagini"><a href="#robot">Robotul UR20</a><a href="#despre">Despre noi</a><a href="#contact">Contact</a><a href="#acasa" class="back">← Înapoi la evaluare</a><button type="button" class="lang-btn" data-lang-toggle aria-label="Switch language">EN</button></nav>
     </div>
   </div>
   <section class="eval-band" id="evaluare">
@@ -496,6 +499,17 @@ footer{padding-block:24px;font-size:12px;color:var(--muted);border-top:1px solid
 <footer><div class="in">Valorile de referință sunt rezultate de test ale unei singure aplicații și nu sunt garanții pentru alte fabrici. Robotul nu crește debitul fabricii: paletizează cât produce linia. Schimbarea paleților și separatoarele rămân operații manuale. Imagini cu brațul UR20: materiale de prezentare Universal Robots.</div></footer>
 
 <script>
+let LANG='ro';try{LANG=localStorage.getItem('pc-lang')==='en'?'en':'ro'}catch(e){}
+const T=(r,e)=>LANG==='en'?e:r;
+const DICT={"Meniu": "Menu", "Evaluează linia": "Evaluate line", "Raportul tău": "Your report", "Robotul UR20": "The UR20 robot", "Despre noi": "About us", "Contact": "Contact", "Află în 30 de secunde cât ridică manual echipa ta și dacă linia ta de găleți poate fi paletizată de un robot UR20.": "Find out in 30 seconds how much your team lifts by hand and whether your bucket line can be palletized by a UR20 robot.", "Vopsele lavabile": "Emulsion paints", "Gleturi și tencuieli": "Fillers and plasters", "Adezivi și amorse": "Adhesives and primers", "Evaluează linia ta": "Evaluate your line", "Testează în 30 de secunde": "Test it in 30 seconds", "Lavabilă 8,5 L": "Paint 8.5 L", "găleată de ~12 kg → raport verde, potrivită": "~12 kg bucket → green report, suitable", "Găleată 15 L": "Bucket 15 L", "~21 kg → respinsă, cu explicația limitei": "~21 kg → rejected, with the limit explained", "Date greșite": "Wrong data", "câmpuri goale sau negative → arată ce e de corectat": "empty or negative fields → shows what to fix", "Prototip demonstrativ · AI-Powered Business Challenge 2026 · date fictive": "Demo prototype · AI-Powered Business Challenge 2026 · fictional data", "← Înapoi la evaluare": "← Back to evaluation", "Evaluează linia ta de găleți": "Evaluate your bucket line", "Completează datele unei linii de umplere. Primești un raport cu efortul fizic de azi și compatibilitatea cu paletizarea UR20.": "Enter the data of one filling line. You get a report on today's physical workload and compatibility with UR20 palletizing.", "Exemplu: lavabilă 8,5 L": "Example: paint 8.5 L", "Exemplu: găleată 15 L": "Example: 15 L bucket", "Exemplu cu date greșite": "Example with wrong data", "Greutatea unei găleți pline (kg)": "Weight of a full bucket (kg)", "vopsea lavabilă ≈ 1,4 kg/L: 5 L ≈ 7 kg, 8,5 L ≈ 12 kg, 15 L ≈ 21 kg": "emulsion paint ≈ 1.4 kg/L: 5 L ≈ 7 kg, 8.5 L ≈ 12 kg, 15 L ≈ 21 kg", "Ritmul liniei (găleți / minut)": "Line rate (buckets / minute)", "câte găleți ies din umplere pe minut": "buckets leaving the filler per minute", "Schimburi pe zi": "Shifts per day", "Alege": "Choose", "Operatori care paletizează, pe schimb": "Operators palletizing, per shift", "Găleata are mâner?": "Does the bucket have a handle?", "Da": "Yes", "Nu": "No", "Zona are praf sau stropi?": "Is the area dusty or splashy?", "frecvent la gleturi, tencuieli, adezivi": "common with fillers, plasters, adhesives", "Aveți aer comprimat în zonă?": "Is compressed air available there?", "Nu știu": "Not sure", "gripperul folosește acționări pneumatice": "the gripper uses pneumatic actuators", "Robotul UR20, de aproape": "The UR20 robot, up close", "Date citite de pe plăcuța robotului expus la concurs și din materialele producătorului.": "Data read from the nameplate of the robot shown at the contest and from the manufacturer's materials.", "palet de până la ~250 cm*": "pallet up to ~250 cm*", "rază de lucru 1.750 mm": "reach 1,750 mm", "sarcină utilă": "payload", "* Sarcina de 25 kg (inclusiv gripperul) e posibilă în condițiile-limită din manualul producătorului; înălțimea paletului depinde de configurație. Ilustrație orientativă, nu la scară exactă.": "* The 25 kg payload (gripper included) is possible within the boundary conditions in the manufacturer's manual; pallet height depends on the setup. Indicative illustration, not exactly to scale.", "Sarcină utilă maximă": "Maximum payload", "Raza de lucru": "Reach", "1.750 mm": "1,750 mm", "Protecție": "Protection", "Siguranță funcțională": "Functional safety", "Greutatea brațului": "Arm weight", "pneumatic, max. 0,8 MPa": "pneumatic, max. 0.8 MPa", "* Producătorul a crescut sarcina de la 20 la 25 kg; cele 25 kg sunt posibile în condițiile-limită din manual. De aceea, formatele aproape de limită se validează tehnic.": "* The manufacturer raised the payload from 20 to 25 kg; 25 kg is possible within the boundary conditions in the manual. That is why formats close to the limit are validated technically.", "Ce formate de găleată se potrivesc": "Which bucket formats fit", "Cele 25 kg includ gripperul (ipoteză de lucru: ~7 kg), deci găleata poate avea cel mult ~18 kg.": "The 25 kg includes the gripper (working assumption: ~7 kg), so the bucket can weigh at most ~18 kg.", "Format tipic": "Typical format", "Greutate aprox.": "Approx. weight", "Cu UR20": "With UR20", "Vopsea lavabilă 5 L": "Emulsion paint 5 L", "potrivit": "suitable", "Vopsea lavabilă 8,5 L": "Emulsion paint 8.5 L", "Vopsea lavabilă 10 L / glet 15 kg": "Emulsion paint 10 L / filler 15 kg", "de validat": "to validate", "Vopsea lavabilă 15 L / glet 20 kg": "Emulsion paint 15 L / filler 20 kg", "prea greu": "too heavy", "Greutățile sunt estimări pentru densitatea obișnuită a vopselei lavabile. Valorile de ritm testate (7,4–8,6 găleți/min) provin dintr-o aplicație alimentară cu găleți de 5 și 13 kg. Pentru vopsele și materiale de construcții, totul se validează tehnic pe produsul clientului.": "Weights are estimates for the usual density of emulsion paint. The tested rates (7.4–8.6 buckets/min) come from a food application with 5 and 13 kg buckets. For paints and building materials, everything is validated technically on the customer's product.", "Celula demonstrativă, cu găleți și panou de comandă": "The demo cell, with buckets and control panel", "Plăcuța robotului: 25 kg, 1.750 mm, IP65, PLd": "Robot nameplate: 25 kg, 1,750 mm, IP65, PLd", "Gripperul pneumatic care prinde mânerul găleții": "The pneumatic gripper that grabs the bucket handle", "Fotografii reale, făcute la celula demonstrativă expusă la concurs.": "Real photos, taken at the demo cell shown at the contest.", "PaletCheck este un prototip de concurs creat de Carla Reithofer, studentă la Electronică (FILS, POLITEHNICA București), pentru AI-Powered Business Challenge 2026. Propune un instrument prin care producătorii de vopsele și materiale de construcții din România își pot evalua rapid liniile de găleți pentru paletizare robotizată cu UR20, înainte de o evaluare tehnică.": "PaletCheck is a contest prototype created by Carla Reithofer, Electronics student (FILS, POLITEHNICA Bucharest), for the AI-Powered Business Challenge 2026. It offers a tool that lets paint and building-materials producers in Romania quickly assess their bucket lines for robotic palletizing with UR20, before a technical evaluation.", "Nu este un site oficial al vreunei companii. Toate datele introduse sunt fictive.": "This is not an official website of any company. All data entered is fictional.", "Solicită o evaluare tehnică": "Request a technical evaluation", "Un inginer verifică formatul găleții, spațiul și utilitățile, apoi stabiliți o demonstrație. În prototip, folosește doar date fictive.": "An engineer checks the bucket format, space and utilities, then you schedule a demo. In this prototype, use fictional data only.", "Nume": "Name", "Fabrica": "Plant", "Rolul tău": "Your role", "Director de producție": "Production manager", "Director tehnic / mentenanță": "Technical / maintenance manager", "Responsabil investiții": "Investment manager", "Administrator": "Owner / administrator", "Altul": "Other", "E-mail": "E-mail", "Trimite cererea": "Send request", "Valorile de referință sunt rezultate de test ale unei singure aplicații și nu sunt garanții pentru alte fabrici. Robotul nu crește debitul fabricii: paletizează cât produce linia. Schimbarea paleților și separatoarele rămân operații manuale. Imagini cu brațul UR20: materiale de prezentare Universal Robots.": "Reference values are test results from a single application and are not guarantees for other plants. The robot does not increase plant output: it palletizes what the line produces. Pallet changes and separator sheets remain manual tasks. UR20 arm images: Universal Robots presentation materials.", "Navigare principală": "Main navigation", "Testează aplicația în 30 de secunde": "Test the app in 30 seconds", "Braț robotic colaborativ care se ridică la scroll": "Collaborative robot arm that rises as you scroll", "Navigare pagină": "Page navigation", "Pagini": "Pages", "Braț UR20 care paletizează": "UR20 arm palletizing", "Braț UR20 care ridică o cutie cu gripper": "UR20 arm lifting a box with a gripper", "Schemă: palet de găleți de până la circa 250 cm, o persoană pentru scară, robotul UR20 pe un piedestal care pune o găleată pe al doilea palet; rază de lucru 1.750 mm, sarcină utilă 25 kg": "Diagram: bucket pallet up to about 250 cm, a person for scale, the UR20 robot on a pedestal placing a bucket on a second pallet; reach 1,750 mm, payload 25 kg", "Celula demonstrativă: brațul UR20 pe o bază mobilă de paletizare, cu panou de comandă și găleți": "Demo cell: the UR20 arm on a mobile palletizing base, with control panel and buckets", "Plăcuța robotului UR20: sarcină utilă maximă 25 kg, rază 1750 mm, IP65, siguranță PLd": "UR20 nameplate: max payload 25 kg, reach 1750 mm, IP65, PLd safety", "Gripperul pneumatic cu acționări rotative și furtunuri de aer comprimat": "Pneumatic gripper with rotary actuators and compressed-air hoses"};
+const ORIG=new WeakMap(), ORIGA=new WeakMap();
+function traduceStatic(){
+  document.documentElement.lang=LANG;
+  const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(!p||p.closest('script,style,#report,#confirm,.err-msg,#cta-ctx'))return NodeFilter.FILTER_REJECT;return n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
+  let n;while(n=w.nextNode()){if(!ORIG.has(n))ORIG.set(n,n.nodeValue);const o=ORIG.get(n),k=o.trim();if(LANG==='en'&&DICT[k])n.nodeValue=o.replace(k,DICT[k]);else n.nodeValue=o}
+  document.querySelectorAll('[alt],[aria-label]').forEach(el=>{['alt','aria-label'].forEach(a=>{if(!el.hasAttribute(a))return;let m=ORIGA.get(el);if(!m){m={};ORIGA.set(el,m)}if(!(a in m))m[a]=el.getAttribute(a);const o=m[a];el.setAttribute(a,LANG==='en'&&DICT[o]?DICT[o]:o)})});
+  document.querySelectorAll('[data-lang-toggle]').forEach(b=>{b.textContent=LANG==='en'?'RO':'EN';b.setAttribute('aria-label',LANG==='en'?'Schimbă în română':'Switch to English')});
+}
 try{history.scrollRestoration='manual'}catch(e){}
 // pagini: principală (fără ancoră), #robot și #despre
 const PAGINI=['robot','despre'];
@@ -537,7 +551,7 @@ document.addEventListener('click',e=>{
   if(document.body.classList.contains('sub')){curata();arata();setTimeout(mergi,650)}else mergi();
 });
 const $=id=>document.getElementById(id);
-const nf=(n,d=0)=>n.toLocaleString('ro-RO',{minimumFractionDigits:d,maximumFractionDigits:d});
+const nf=(n,d=0)=>n.toLocaleString(LANG==='en'?'en-GB':'ro-RO',{minimumFractionDigits:d,maximumFractionDigits:d});
 const SARCINA_UR20=25, GRIPPER=7, ORE_SCHIMB=7, ZILE_AN=250, TINTA=6;
 
 (function(){
@@ -615,19 +629,19 @@ $('menu-btn').onclick=()=>{const p=$('menu-panel');p.hidden=!p.hidden;$('menu-bt
 document.querySelectorAll('#menu-panel a').forEach(a=>a.addEventListener('click',()=>{$('menu-panel').hidden=true;$('menu-btn').setAttribute('aria-expanded','false')}));
 
 function capacitateTestata(kg){if(kg<=5)return 8.6;if(kg>=13)return 7.4;return 8.6-(kg-5)*(1.2/8)}
-function galetiPePalet(kg){if(kg<=8)return{n:100,src:'referință 100 găleți de 5 kg'};if(kg<=14)return{n:44,src:'referință 44 găleți de 13 kg'};return{n:Math.floor(560/kg),src:'estimare, de validat'}}
+function galetiPePalet(kg){if(kg<=8)return{n:100,src:T('referință 100 găleți de 5 kg','reference: 100 buckets of 5 kg')};if(kg<=14)return{n:44,src:T('referință 44 găleți de 13 kg','reference: 44 buckets of 13 kg')};return{n:Math.floor(560/kg),src:T('estimare, de validat','estimate, to validate')}}
 function setErr(id,msg){$('e-'+id).textContent=msg||'';$(id).classList.toggle('invalid',!!msg)}
 
 function citeste(){
   const v={kg:parseFloat($('kg').value),ritm:parseFloat($('ritm').value),sch:parseInt($('sch').value),op:parseInt($('op').value),maner:$('maner').value,praf:$('praf').value,aer:$('aer').value};
   let ok=true;const e=(id,m)=>{setErr(id,m);if(m)ok=false};
-  e('kg',isNaN(v.kg)?'Completează greutatea găleții.':v.kg<=0?'Greutatea trebuie să fie mai mare decât 0.':v.kg>50?'Peste 50 kg nu e o găleată manipulabilă. Verifică valoarea.':'');
-  e('ritm',isNaN(v.ritm)?'Completează ritmul liniei.':v.ritm<=0?'Ritmul trebuie să fie mai mare decât 0.':v.ritm>30?'Peste 30 găleți/min pare o greșeală de introducere.':'');
-  e('sch',isNaN(v.sch)?'Alege numărul de schimburi.':'');
-  e('op',isNaN(v.op)?'Completează numărul de operatori.':v.op<1?'Trebuie cel puțin un operator.':v.op>10?'Peste 10 operatori pe schimb pare o greșeală.':'');
-  e('maner',v.maner?'':'Alege dacă găleata are mâner.');
-  e('praf',v.praf?'':'Alege o variantă.');
-  e('aer',v.aer?'':'Alege o variantă.');
+  e('kg',isNaN(v.kg)?T('Completează greutatea găleții.','Enter the bucket weight.'):v.kg<=0?T('Greutatea trebuie să fie mai mare decât 0.','Weight must be greater than 0.'):v.kg>50?T('Peste 50 kg nu e o găleată manipulabilă. Verifică valoarea.','Over 50 kg is not a handleable bucket. Check the value.'):'');
+  e('ritm',isNaN(v.ritm)?T('Completează ritmul liniei.','Enter the line rate.'):v.ritm<=0?T('Ritmul trebuie să fie mai mare decât 0.','Rate must be greater than 0.'):v.ritm>30?T('Peste 30 găleți/min pare o greșeală de introducere.','Over 30 buckets/min looks like a typo.'):'');
+  e('sch',isNaN(v.sch)?T('Alege numărul de schimburi.','Choose the number of shifts.'):'');
+  e('op',isNaN(v.op)?T('Completează numărul de operatori.','Enter the number of operators.'):v.op<1?T('Trebuie cel puțin un operator.','At least one operator is needed.'):v.op>10?T('Peste 10 operatori pe schimb pare o greșeală.','Over 10 operators per shift looks like a mistake.'):'');
+  e('maner',v.maner?'':T('Alege dacă găleata are mâner.','Choose whether the bucket has a handle.'));
+  e('praf',v.praf?'':T('Alege o variantă.','Choose an option.'));
+  e('aer',v.aer?'':T('Alege o variantă.','Choose an option.'));
   return ok?v:null;
 }
 
@@ -637,45 +651,45 @@ function evalueaza(v){
   const cap=capacitateTestata(v.kg), celule=Math.max(1,Math.ceil(v.ritm/cap));
   const checks=[];let nivel=0;const up=n=>nivel=Math.max(nivel,n);
   const total=v.kg+GRIPPER;
-  if(total<=SARCINA_UR20-2) checks.push(['ok',`Sarcină: găleată ${nf(v.kg,1)} kg + gripper ~${GRIPPER} kg = ${nf(total,1)} kg, sub limita de ${SARCINA_UR20} kg a UR20.`]);
-  else if(total<=SARCINA_UR20){checks.push(['warn',`Sarcină: ${nf(total,1)} kg, aproape de limita de ${SARCINA_UR20} kg. Greutatea reală a gripperului trebuie confirmată.`]);up(1)}
-  else{checks.push(['bad',`Sarcină: ${nf(total,1)} kg depășește limita de ${SARCINA_UR20} kg a UR20. Formatul acesta nu se poate paletiza cu UR20; formatele mai mici ale aceleiași fabrici pot fi evaluate separat.`]);up(2)}
-  if(v.kg<5||v.kg>13){checks.push(['warn','Format în afara greutăților testate (5 kg și 13 kg). Ritmul și prinderea se validează pe găleata ta.']);up(1)}
-  if(v.ritm<=TINTA) checks.push(['ok',`Ritm: ${nf(v.ritm,1)} găleți/min, în ținta de proiectare de ${TINTA}/min. O celulă poate ține pasul cu linia.`]);
-  else if(v.ritm<=cap){checks.push(['warn',`Ritm: ${nf(v.ritm,1)} găleți/min, peste ținta de ${TINTA}/min, dar sub valoarea testată de ${nf(cap,1)}/min. Necesită test pe linia ta.`]);up(1)}
-  else{checks.push(['warn',`Ritm: ${nf(v.ritm,1)} găleți/min, peste valoarea testată de ${nf(cap,1)}/min. Estimare: ${celule} celule sau împărțirea fluxului pe mai multe linii.`]);up(1)}
-  if(v.maner==='da') checks.push(['ok','Prindere: mânerul permite prinderea cu gripperul pneumatic și verificarea poziției cu camera.']);
-  else{checks.push(['warn','Prindere: fără mâner este nevoie de alt tip de gripper decât cel testat. Validare separată.']);up(1)}
-  if(v.praf==='da'){checks.push(['warn','Mediu: brațul are protecție IP65 (praf și jeturi de apă). Camera și gripperul se verifică pentru praf și stropi.']);up(1)}
-  else checks.push(['ok','Mediu: zonă curată; brațul are oricum protecție IP65.']);
-  if(v.aer==='da') checks.push(['ok','Utilități: aer comprimat disponibil pentru gripper (acționări de max. 0,8 MPa).']);
-  else{checks.push(['warn',v.aer==='nu'?'Utilități: fără aer comprimat e nevoie de un compresor sau de un gripper electric. Cost și spațiu de inclus în ofertă.':'Utilități: de confirmat dacă există aer comprimat; gripperul folosește acționări pneumatice.']);up(1)}
+  if(total<=SARCINA_UR20-2) checks.push(['ok',T(`Sarcină: găleată ${nf(v.kg,1)} kg + gripper ~${GRIPPER} kg = ${nf(total,1)} kg, sub limita de ${SARCINA_UR20} kg a UR20.`,`Payload: bucket ${nf(v.kg,1)} kg + gripper ~${GRIPPER} kg = ${nf(total,1)} kg, below the UR20 limit of ${SARCINA_UR20} kg.`)]);
+  else if(total<=SARCINA_UR20){checks.push(['warn',T(`Sarcină: ${nf(total,1)} kg, aproape de limita de ${SARCINA_UR20} kg. Greutatea reală a gripperului trebuie confirmată.`,`Payload: ${nf(total,1)} kg, close to the ${SARCINA_UR20} kg limit. The actual gripper weight must be confirmed.`)]);up(1)}
+  else{checks.push(['bad',T(`Sarcină: ${nf(total,1)} kg depășește limita de ${SARCINA_UR20} kg a UR20. Formatul acesta nu se poate paletiza cu UR20; formatele mai mici ale aceleiași fabrici pot fi evaluate separat.`,`Payload: ${nf(total,1)} kg exceeds the UR20 limit of ${SARCINA_UR20} kg. This format cannot be palletized with UR20; the same plant's smaller formats can be evaluated separately.`)]);up(2)}
+  if(v.kg<5||v.kg>13){checks.push(['warn',T('Format în afara greutăților testate (5 kg și 13 kg). Ritmul și prinderea se validează pe găleata ta.','Format outside the tested weights (5 kg and 13 kg). Rate and grip are validated on your bucket.')]);up(1)}
+  if(v.ritm<=TINTA) checks.push(['ok',T(`Ritm: ${nf(v.ritm,1)} găleți/min, în ținta de proiectare de ${TINTA}/min. O celulă poate ține pasul cu linia.`,`Rate: ${nf(v.ritm,1)} buckets/min, within the ${TINTA}/min design target. One cell can keep up with the line.`)]);
+  else if(v.ritm<=cap){checks.push(['warn',T(`Ritm: ${nf(v.ritm,1)} găleți/min, peste ținta de ${TINTA}/min, dar sub valoarea testată de ${nf(cap,1)}/min. Necesită test pe linia ta.`,`Rate: ${nf(v.ritm,1)} buckets/min, above the ${TINTA}/min target but below the tested ${nf(cap,1)}/min. Needs a test on your line.`)]);up(1)}
+  else{checks.push(['warn',T(`Ritm: ${nf(v.ritm,1)} găleți/min, peste valoarea testată de ${nf(cap,1)}/min. Estimare: ${celule} celule sau împărțirea fluxului pe mai multe linii.`,`Rate: ${nf(v.ritm,1)} buckets/min, above the tested ${nf(cap,1)}/min. Estimate: ${celule} cells or splitting the flow across lines.`)]);up(1)}
+  if(v.maner==='da') checks.push(['ok',T('Prindere: mânerul permite prinderea cu gripperul pneumatic și verificarea poziției cu camera.','Grip: the handle allows gripping with the pneumatic gripper and position checking with the camera.')]);
+  else{checks.push(['warn',T('Prindere: fără mâner este nevoie de alt tip de gripper decât cel testat. Validare separată.','Grip: without a handle a different gripper than the tested one is needed. Separate validation.')]);up(1)}
+  if(v.praf==='da'){checks.push(['warn',T('Mediu: brațul are protecție IP65 (praf și jeturi de apă). Camera și gripperul se verifică pentru praf și stropi.','Environment: the arm is IP65 rated (dust and water jets). Camera and gripper are checked for dust and splashes.')]);up(1)}
+  else checks.push(['ok',T('Mediu: zonă curată; brațul are oricum protecție IP65.','Environment: clean area; the arm is IP65 rated anyway.')]);
+  if(v.aer==='da') checks.push(['ok',T('Utilități: aer comprimat disponibil pentru gripper (acționări de max. 0,8 MPa).','Utilities: compressed air available for the gripper (actuators up to 0.8 MPa).')]);
+  else{checks.push(['warn',v.aer==='nu'?T('Utilități: fără aer comprimat e nevoie de un compresor sau de un gripper electric. Cost și spațiu de inclus în ofertă.','Utilities: without compressed air a compressor or an electric gripper is needed. Cost and space to include in the offer.'):T('Utilități: de confirmat dacă există aer comprimat; gripperul folosește acționări pneumatice.','Utilities: confirm whether compressed air is available; the gripper uses pneumatic actuators.')]);up(1)}
   return{galetiZi,toneZi,toneAn,kgOpSchimb,pal,paletiZi,cap,celule,checks,nivel};
 }
 
 let ultim=null;
 function afiseaza(v,r,scroll){
-  const V=[['v-ok','Potrivită pentru paletizare UR20','Merită o evaluare tehnică și o demonstrație.'],['v-warn','Posibil potrivită, cu puncte de validat','Punctele marcate cu galben se verifică la evaluarea tehnică.'],['v-bad','Nepotrivită pentru acest format','Găleata depășește ce poate manipula UR20. Formatele mai mici pot fi evaluate.']][r.nivel];
+  const V=[['v-ok',T('Potrivită pentru paletizare UR20','Suitable for UR20 palletizing'),T('Merită o evaluare tehnică și o demonstrație.','Worth a technical evaluation and a demo.')],['v-warn',T('Posibil potrivită, cu puncte de validat','Possibly suitable, with points to validate'),T('Punctele marcate cu galben se verifică la evaluarea tehnică.','Points marked in yellow are checked in the technical evaluation.')],['v-bad',T('Nepotrivită pentru acest format','Not suitable for this format'),T('Găleata depășește ce poate manipula UR20. Formatele mai mici pot fi evaluate.','The bucket exceeds what UR20 can handle. Smaller formats can be evaluated.')]][r.nivel];
   const ic={ok:['d-ok','✓'],warn:['d-warn','!'],bad:['d-bad','✕']};
   $('report').classList.add('notebook');
   $('report').innerHTML=`<div class="rings" aria-hidden="true">${'<span></span>'.repeat(16)}</div>
-    <h2>Raportul tău</h2>
-    <div class="hero-num"><span class="note">Echipa ta ridică manual, în fiecare zi</span><span class="n">${nf(r.toneZi,1)} tone</span><span class="note">${nf(r.galetiZi)} găleți × ${nf(v.kg,1)} kg, fiecare ridicată cel puțin o dată de pe bandă pe palet</span></div>
+    <h2>${T('Raportul tău','Your report')}</h2>
+    <div class="hero-num"><span class="note">${T('Echipa ta ridică manual, în fiecare zi','Your team lifts by hand, every day')}</span><span class="n">${nf(r.toneZi,1)} ${T('tone','tonnes')}</span><span class="note">${nf(r.galetiZi)} ${T('găleți','buckets')} × ${nf(v.kg,1)} kg, ${T('fiecare ridicată cel puțin o dată de pe bandă pe palet','each lifted at least once from conveyor to pallet')}</span></div>
     <div class="stats">
-      <div class="stat"><span class="n">${nf(r.kgOpSchimb/1000,1)} t</span><span class="l">ridicate de fiecare operator, pe schimb</span></div>
-      <div class="stat"><span class="n">${nf(r.toneAn)} t</span><span class="l">pe an (${ZILE_AN} zile lucrătoare)</span></div>
-      <div class="stat"><span class="n">${nf(r.paletiZi)}</span><span class="l">paleți pe zi (${r.pal.src})</span></div>
-      <div class="stat"><span class="n">${r.celule}</span><span class="l">celulă UR20 estimată pentru ritmul liniei</span></div>
+      <div class="stat"><span class="n">${nf(r.kgOpSchimb/1000,1)} t</span><span class="l">${T('ridicate de fiecare operator, pe schimb','lifted by each operator, per shift')}</span></div>
+      <div class="stat"><span class="n">${nf(r.toneAn)} t</span><span class="l">${T(`pe an (${ZILE_AN} zile lucrătoare)`,`per year (${ZILE_AN} working days)`)}</span></div>
+      <div class="stat"><span class="n">${nf(r.paletiZi)}</span><span class="l">${T('paleți pe zi','pallets per day')} (${r.pal.src})</span></div>
+      <div class="stat"><span class="n">${r.celule}</span><span class="l">${T('celulă UR20 estimată pentru ritmul liniei','UR20 cell(s) estimated for the line rate')}</span></div>
     </div>
     <div class="verdict ${V[0]}"><strong>${V[1]}</strong><span>${V[2]}</span></div>
-    <div style="display:grid;gap:10px"><h3>Ce am verificat</h3><ul class="checks">${r.checks.map(c=>`<li><span class="dot ${ic[c[0]][0]}" aria-hidden="true">${ic[c[0]][1]}</span><span>${c[1]}</span></li>`).join('')}</ul></div>
-    <p class="note">Ipoteze: ${ORE_SCHIMB} ore productive pe schimb, gripper ~${GRIPPER} kg, raza brațului de 1.750 mm limitează înălțimea stivei. Robotul paletizează cât produce linia; blocajele din amonte sau aval se rezolvă separat.</p>
-    ${r.nivel<2?'<div class="btns"><a class="primary" href="#contact" style="text-decoration:none;border-radius:8px;padding:11px 16px;font-weight:600;display:inline-block">Solicită evaluare tehnică</a></div>':''}`;
+    <div style="display:grid;gap:10px"><h3>${T('Ce am verificat','What we checked')}</h3><ul class="checks">${r.checks.map(c=>`<li><span class="dot ${ic[c[0]][0]}" aria-hidden="true">${ic[c[0]][1]}</span><span>${c[1]}</span></li>`).join('')}</ul></div>
+    <p class="note">${T(`Ipoteze: ${ORE_SCHIMB} ore productive pe schimb, gripper ~${GRIPPER} kg, raza brațului de 1.750 mm limitează înălțimea stivei. Robotul paletizează cât produce linia; blocajele din amonte sau aval se rezolvă separat.`,`Assumptions: ${ORE_SCHIMB} productive hours per shift, gripper ~${GRIPPER} kg, the 1,750 mm reach limits stack height. The robot palletizes what the line produces; upstream or downstream bottlenecks are solved separately.`)}</p>
+    ${r.nivel<2?'<div class="btns"><a class="primary" href="#contact" style="text-decoration:none;border-radius:8px;padding:11px 16px;font-weight:600;display:inline-block">'+T('Solicită evaluare tehnică','Request a technical evaluation')+'</a></div>':''}`;
   ultim={v,r};
-  $('cta-ctx').textContent=`Linia evaluată: găleți de ${nf(v.kg,1)} kg, ${nf(v.ritm,1)} găleți/min, ${v.sch} schimburi · ${V[1]}.`;
+  $('cta-ctx').textContent=T(`Linia evaluată: găleți de ${nf(v.kg,1)} kg, ${nf(v.ritm,1)} găleți/min, ${v.sch} schimburi · ${V[1]}.`,`Evaluated line: ${nf(v.kg,1)} kg buckets, ${nf(v.ritm,1)} buckets/min, ${v.sch} shifts · ${V[1]}.`);
   if(scroll) $('raport').scrollIntoView({behavior:'smooth',block:'start'});
 }
-function lipsa(){$('report').classList.add('notebook');$('report').innerHTML='<div class="rings" aria-hidden="true">'+'<span></span>'.repeat(16)+'</div><h2>Raportul tău</h2><div class="verdict v-bad"><strong>Date incomplete sau greșite</strong><span>Corectează câmpurile marcate cu roșu în formular, apoi apasă din nou „Evaluează linia”.</span></div>';$('cta-ctx').textContent=''}
+function lipsa(){$('report').classList.add('notebook');$('report').innerHTML='<div class="rings" aria-hidden="true">'+'<span></span>'.repeat(16)+'</div><h2>'+T('Raportul tău','Your report')+'</h2><div class="verdict v-bad"><strong>'+T('Date incomplete sau greșite','Incomplete or wrong data')+'</strong><span>'+T('Corectează câmpurile marcate cu roșu în formular, apoi apasă din nou „Evaluează linia”.','Fix the fields marked in red in the form, then press “Evaluate line” again.')+'</span></div>';$('cta-ctx').textContent=''}
 
 $('f').addEventListener('submit',ev=>{ev.preventDefault();const v=citeste();if(!v){lipsa();$('evaluare').scrollIntoView({behavior:'smooth'});return}afiseaza(v,evalueaza(v),true)});
 function fill(d){for(const k in d)$(k).value=d[k]}
@@ -687,18 +701,30 @@ $('ex-bad').onclick=()=>{fill({kg:-3,ritm:'',sch:'2',op:0,maner:'da',praf:'',aer
 
 $('cf').addEventListener('submit',ev=>{
   ev.preventDefault();let ok=true;const e=(id,m)=>{setErr(id,m);if(m)ok=false};
-  e('c-nume',$('c-nume').value.trim()?'':'Completează numele.');
-  e('c-firma',$('c-firma').value.trim()?'':'Completează numele fabricii.');
-  e('c-rol',$('c-rol').value?'':'Alege rolul.');
+  e('c-nume',$('c-nume').value.trim()?'':T('Completează numele.','Enter your name.'));
+  e('c-firma',$('c-firma').value.trim()?'':T('Completează numele fabricii.','Enter the plant name.'));
+  e('c-rol',$('c-rol').value?'':T('Alege rolul.','Choose your role.'));
   const em=$('c-email').value.trim();
-  e('c-email',!em?'Completează e-mailul.':/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)?'':'Adresa de e-mail nu este validă.');
+  e('c-email',!em?T('Completează e-mailul.','Enter your e-mail.'):/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)?'':T('Adresa de e-mail nu este validă.','The e-mail address is not valid.'));
   if(!ok)return;
   const nr='DEMO-'+String(Math.floor(1000+Math.random()*9000));
-  $('confirm').innerHTML=`<div class="confirm"><strong>Cerere înregistrată: ${nr}</strong><br>Pasul următor: un inginer te contactează pentru evaluarea tehnică și programarea unei demonstrații. (Prototip: cererea nu se trimite nicăieri.)</div>`;
+  window.__nr=nr;$('confirm').innerHTML=confirmHTML(nr);
   $('confirm').hidden=false;$('cf').hidden=true;
 });
 
-$('report').innerHTML='<h2>Raportul tău</h2><p class="lead">Completează datele liniei sau apasă unul dintre exemple. Aici apare cât ridică manual echipa ta și dacă linia se potrivește pentru UR20.</p>';
+function gol(){$('report').innerHTML='<h2>'+T('Raportul tău','Your report')+'</h2><p class="lead">'+T('Completează datele liniei sau apasă unul dintre exemple. Aici apare cât ridică manual echipa ta și dacă linia se potrivește pentru UR20.','Enter your line data or press one of the examples. This is where you see how much your team lifts by hand and whether the line suits UR20.')+'</p>'}
+function confirmHTML(nr){return `<div class="confirm"><strong>${T('Cerere înregistrată','Request registered')}: ${nr}</strong><br>${T('Pasul următor: un inginer te contactează pentru evaluarea tehnică și programarea unei demonstrații. (Prototip: cererea nu se trimite nicăieri.)','Next step: an engineer contacts you for the technical evaluation and to schedule a demo. (Prototype: the request is not sent anywhere.)')}</div>`}
+gol();traduceStatic();
+let stareRaport='gol';
+function schimbaLimba(){
+  LANG=LANG==='en'?'ro':'en';try{localStorage.setItem('pc-lang',LANG)}catch(e){}
+  traduceStatic();
+  if(ultim&&$('report').querySelector('.hero-num')) afiseaza(ultim.v,evalueaza(ultim.v),false);
+  else if($('report').classList.contains('notebook')) lipsa(); else gol();
+  if([...document.querySelectorAll('.err-msg')].some(e=>e.textContent)) citeste();
+  if(!$('confirm').hidden&&window.__nr) $('confirm').innerHTML=confirmHTML(window.__nr);
+}
+document.querySelectorAll('[data-lang-toggle]').forEach(b=>b.addEventListener('click',schimbaLimba));
 </script>
 
 </body>
