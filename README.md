@@ -71,7 +71,7 @@ Three one-click examples show a suitable line, a bucket that is too heavy, and w
 PaletCheck/
 ├── index.html      the whole web app
 ├── README.md
-└── docs/           (optional) strategy, financial model, poster, pitch, AI log
+└── docs/           strategy, financial model, poster, pitch, AI log
 ```
 
 ## How it was built
