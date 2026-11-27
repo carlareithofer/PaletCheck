@@ -4,8 +4,8 @@
 
 🔗 **Live demo:** [carlareithofer.github.io/PaletCheck](https://carlareithofer.github.io/PaletCheck/)
 
-<img width="420" height="250" alt="image" src="https://github.com/user-attachments/assets/15fc6dfb-5b4a-4624-abcd-bdf600b1caa3" />
-<img width="420" height="250" alt="image" src="https://github.com/user-attachments/assets/f40a3af6-b6a8-4ae8-b28a-5b1566e57677" />
+<img width="400" height="240" alt="image" src="https://github.com/user-attachments/assets/15fc6dfb-5b4a-4624-abcd-bdf600b1caa3" />
+<img width="400" height="240" alt="image" src="https://github.com/user-attachments/assets/f40a3af6-b6a8-4ae8-b28a-5b1566e57677" />
 
 
 ---
