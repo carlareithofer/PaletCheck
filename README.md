@@ -4,8 +4,9 @@
 
 🔗 **Live demo:** [carlareithofer.github.io/PaletCheck](https://carlareithofer.github.io/PaletCheck/)
 
-<!-- Add a screenshot: save it as docs/screenshot.png and uncomment the line below -->
-<!-- ![PaletCheck screenshot](docs/screenshot.png) -->
+<img width="450" height="270" alt="image" src="https://github.com/user-attachments/assets/15fc6dfb-5b4a-4624-abcd-bdf600b1caa3" />
+<img width="450" height="270" alt="image" src="https://github.com/user-attachments/assets/f40a3af6-b6a8-4ae8-b28a-5b1566e57677" />
+
 
 ---
 
