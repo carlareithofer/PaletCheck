@@ -4,6 +4,8 @@ This folder contains everything I submitted for the **AI-Powered Business Challe
 
 All six deliverables were produced in about 3.5 hours, working solo with AI. They are built around the same idea and the same numbers, so they can be read together.
 
+> 🇷🇴 **Language:** all documents are in **Romanian**, the language of the competition. This README summarises them in English. The web app itself is available in both Romanian and English.
+
 ← Back to the [main project](../README.md) · 🔗 [Live app](https://carlareithofer.github.io/PaletCheck/)
 
 ---
@@ -13,6 +15,8 @@ All six deliverables were produced in about 3.5 hours, working solo with AI. The
 Tech-Con installed UR20 collaborative robots to palletize buckets at a food factory. The challenge was to build a business that promotes and sells similar robotic cells to other factories in Romania, with a €30,000 promotion budget and a €300,000 net profit target for the year.
 
 ## Documents
+
+All documents below are in Romanian.
 
 | File | What it is | Its purpose |
 | --- | --- | --- |
